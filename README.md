@@ -70,10 +70,3 @@ Steps:
 3. Use this token in headers to access protected endpoints.
 4. Admin-only features require admin role tokens. Refer to service logic in the [`ServiceImpl` folder](https://github.com/Bahri-Adem/Cafe-Management-System-Angular-SpringBoot/blob/main/Backend/src/main/java/com/inn/cafe/serviceImpl).
 
----
-
-## Note
-
-This project was developed for educational purposes and is based on instructional content provided through a YouTube course.
-
-Feel free to contribute, fork, or adapt this project as needed.

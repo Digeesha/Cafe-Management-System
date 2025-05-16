@@ -1,0 +1,78 @@
+<div class="feedback-container">
+  <h1>Submit Feedback</h1>
+
+  <!-- Feedback Form -->
+  <form (ngSubmit)="submitFeedback()">
+    <!-- Product Dropdown -->
+    <div class="form-group">
+      <label for="product">Select Product:</label>
+      <select
+        id="product"
+        [(ngModel)]="feedback.productId"
+        name="product"
+        required
+      >
+        <option value="" disabled>Select a product</option>
+        <option *ngFor="let product of products" [value]="product.id">
+          {{ product.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Rating -->
+    <div class="form-group">
+      <label for="rating">Rating (1 to 5):</label>
+      <input
+        type="number"
+        id="rating"
+        [(ngModel)]="feedback.rating"
+        name="rating"
+        min="1"
+        max="5"
+        required
+      />
+    </div>
+
+    <!-- Comment -->
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea
+        id="comment"
+        [(ngModel)]="feedback.comment"
+        name="comment"
+        maxlength="500"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn-submit">Submit Feedback</button>
+  </form>
+
+  <!-- Success/Error Message -->
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <!-- Feedback List -->
+  <h2>Feedback</h2>
+
+  <!-- Feedback Table -->
+  <div *ngIf="feedbackList.length">
+    <table>
+      <thead>
+      <tr>
+        <th>Product</th>
+        <th>Rating</th>
+        <th>Comment</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let feedback of feedbackList">
+        <td>{{ feedback.productName }}</td>
+        <td>{{ feedback.rating }}</td>
+        <td>{{ feedback.comment }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p *ngIf="!feedbackList.length">No feedback available.</p>
+</div>
